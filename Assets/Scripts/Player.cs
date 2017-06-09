@@ -6,10 +6,16 @@ public class Player : MonoBehaviour {
 
     [SerializeField]
     private Stat health;
+    [SerializeField]
+    private Stat energy;
+    [SerializeField]
+    private Stat shield;
 
     private void Awake()
     {
         health.Initialize();
+        energy.Initialize();
+        shield.Initialize();
     }
 
     // Update is called once per frame
@@ -22,5 +28,24 @@ public class Player : MonoBehaviour {
         {
             health.CurrentVal += 10;
         }
+
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            energy.CurrentVal -= 10;
+        }
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            energy.CurrentVal += 10;
+        }
+
+        if (Input.GetKeyDown(KeyCode.Z))
+        {
+            shield.CurrentVal -= 10;
+        }
+        if (Input.GetKeyDown(KeyCode.X))
+        {
+            shield.CurrentVal += 10;
+        }
+
     }
 }
